@@ -1,24 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import { Box } from "@chakra-ui/layout";
+import "./App.css";
+import { Main } from "./layout/main";
+import { Sidebar } from "./layout/sidebar";
+import { useMediaQuery } from "@chakra-ui/react";
+import { SmallDeviceInfo } from "./components/SmallDeviceInfo";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+  const [smDevice] = useMediaQuery("(max-width: 989px)");
+
+  return !smDevice ? (
+    <Box className="App">
+      <Box position="fixed">
+        <Sidebar />
+      </Box>
+      <Box marginLeft="220px">
+        <Main />
+      </Box>
+    </Box>
+  ) : (
+    <SmallDeviceInfo />
   );
 }
 
