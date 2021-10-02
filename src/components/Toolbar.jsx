@@ -1,5 +1,4 @@
-import { Flex } from "@chakra-ui/layout";
-import { Box } from "@material-ui/core";
+import { Flex, Box } from "@chakra-ui/layout";
 import { HiChevronLeft, HiChevronRight } from "react-icons/hi";
 import { CalendarTab } from "./CalendarTab";
 
